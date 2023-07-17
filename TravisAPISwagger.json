@@ -119,8 +119,10 @@
                     "200": {
                         "description":"OK",
                         "schema": {
-                                "type": "object",
-                                "$ref":"#/definitions/rootObject"
+                                "type": "array",
+                                "items": {
+                                    "$ref":"#/definitions/rootObject"
+                                }     
                         },
                         "examples":{
                             "application/json":{
@@ -136,7 +138,6 @@
         "rootObject": {
             "type": "object",
             "description": "Model for Operator data",
-            
                 "properties": {
                     "TravisData": {
                         "type": "array",
