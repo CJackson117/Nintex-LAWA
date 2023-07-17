@@ -10,9 +10,6 @@
     "schemes": [
         "https"
     ],
-    "produces": [
-        "application/json"
-    ],
     "paths": {
         "/Companies/{CompanyName}": {
             "get": {
