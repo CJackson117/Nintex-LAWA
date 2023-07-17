@@ -136,29 +136,32 @@
         "rootObject": {
             "type": "array",
             "description": "Model for Operator data",
-            "properties": {
-                "TravisData": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/TravisData"
-                        }
-                },
-                "Disclaimer": {
-                    "type": "string"
-                },
-                "RequestDateTime": {
-                    "type":"string"
-                },
-                "ErrorCode": {
-                    "type": "string"
-                },
-                "ErrorMessage": {
-                    "type":"string"
-                },
-                "RequestRecords": {
-                    "type": "string"
-                }
-                }
+            "items": {
+                "properties": {
+                    "TravisData": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/TravisData"
+                            }
+                    },
+                    "Disclaimer": {
+                        "type": "string"
+                    },
+                    "RequestDateTime": {
+                        "type":"string"
+                    },
+                    "ErrorCode": {
+                        "type": "string"
+                    },
+                    "ErrorMessage": {
+                        "type":"string"
+                    },
+                    "RequestRecords": {
+                        "type": "string"
+                    }
+                 }
+            }
+
 
         },
         "Vehicles": {
