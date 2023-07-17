@@ -6,7 +6,7 @@
             "description": "3 methods to return Operator Inforation from the Travis API"
     },
     "host": "api-test.lacity.org",
-    "basepath": "/lawa/TravisOnBoard/GetTravisData",
+    "basePath": "/lawa/TravisOnBoard/GetTravisData",
     "schemes": [
         "https"
     ],
@@ -17,22 +17,22 @@
         "/Companies/{CompanyName}": {
             "get": {
                 "summary": "Get Operator Info From Company Name",
-                "decsription": "",
-                "operationID": "getOperatorInfoFromCompanyName",
+                "description": "Get Operator Info From Company Name",
+                "operationId": "getOperatorInfoFromCompanyName",
                 "produces": ["application/json"],
                 "parameters": [
                     {
                         "name": "apiKey",
                         "type": "string",
                         "in": "query",
-                        "required": "true",
+                        "required": true,
                         "description": "API Key"
                     },
                     {
                         "name": "CompanyName",
                         "type": "string",
                         "in": "path",
-                        "required":"true",
+                        "required":true,
                         "description": "The Company Name to search for"
                     }
                 ],
@@ -52,20 +52,85 @@
             }
         },
         
-        "/PermitDates": {
+        "/PermitDates/{startDate}/{endDate}": {
             "get": {
                 "summary": "Get Operator Info From Permit Dates",
-                "decsription": "",
-                "operationID": "getOperatorInfoFromPermitDates",
-                "produces": ["application/json"]
+                "description": "Get Operator Info From Permit Dates",
+                "operationId": "getOperatorInfoFromPermitDates",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "apiKey",
+                        "type": "string",
+                        "in": "query",
+                        "required": true,
+                        "description": "API Key"
+                    },
+                    {
+                        "name": "startDate",
+                        "type": "string",
+                        "in": "path",
+                        "required":true,
+                        "description": "The Start Date to use"
+                    },
+                    {
+                        "name": "endDate",
+                        "type": "string",
+                        "in": "path",
+                        "required":true,
+                        "description": "The End Date to use"
+                    }
+                ],
+                "responses":{
+                    "200": {
+                        "description":"OK",
+                        "schema": {
+                                "$ref":"#definitions/rootObject"
+                        },
+                        "examples":{
+                            "application/json":{
+
+                            }
+                        }
+                    }
+                }
             }
         },
-        "/Ian": {
+        "/Ian/{LSPNumber}": {
             "get": {
                 "summary": "Get Operator Info From LSO Number",
-                "decsription": "",
-                "operationID": "getOperatorInfoFromLSONumber",
-                "produces": ["application/json"]
+                "description": "Get Operator Info From LSO Number",
+                "operationId": "getOperatorInfoFromLSONumber",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "apiKey",
+                        "type": "string",
+                        "in": "query",
+                        "required": true,
+                        "description": "API Key"
+                    },
+                    {
+                        "name": "LSONumber",
+                        "type": "string",
+                        "in": "path",
+                        "required":true,
+                        "description": "The LSO Number to search for"
+                    }
+                ],
+                "responses":{
+                    "200": {
+                        "description":"OK",
+                        "schema": {
+                                "$ref":"#definitions/rootObject"
+                        },
+                        "examples":{
+                            "application/json":{
+
+                            }
+                        }
+                    }
+                }
             }
         }
     },
@@ -79,7 +144,6 @@
                     "items": {
                         "$ref": "#/definitions/TravisData"
                         }
-                    }
                 },
                 "Disclaimer": {
                     "type": "string"
@@ -96,6 +160,8 @@
                 "RequestRecords": {
                     "type": "string"
                 }
+                }
+
         },
         "Vehicles": {
             "type":"object",
@@ -105,46 +171,46 @@
                     "type":"number"
                 },
                 "VehicleId": {
-                    "Type": "number"
+                    "type": "number"
                 },
                 "FleetNumber": {
-                    "Type": "number"
+                    "type": "number"
                 },
                 "Year": {
-                    "Type": "number"
+                    "type": "number"
                 },
                 "Make": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "Model": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "Color": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "VIN": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "PassengerCapacity": {
-                    "Type": "number"
+                    "type": "number"
                 },
                 "FuelTypeID": {
-                    "Type": "number"
+                    "type": "number"
                 },
                 "FuelTypeName": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "LicensePlate": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "Weight": {
-                    "Type": "number"
+                    "type": "number"
                 },
                 "Transponder": {
-                    "Type": "number"
+                    "type": "number"
                 },
                 "DecalNumber": {
-                    "Type": "number"
+                    "type": "number"
                 }
             }
         },
@@ -156,31 +222,31 @@
                     "type":"number"
                 },
                 "ContactId": {
-                    "Type": "number"
+                    "type": "number"
                 },
                 "FirstName": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "LastName": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "Address1": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "City": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "State": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "Zip": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "Phone": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "Email": {
-                    "Type": "string"
+                    "type": "string"
                 }
 
             }
@@ -193,31 +259,31 @@
                     "type":"number"
                 },
                 "ContactId": {
-                    "Type": "number"
+                    "type": "number"
                 },
                 "FirstName": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "LastName": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "Address1": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "City": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "State": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "Zip": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "Phone": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "Email": {
-                    "Type": "string"
+                    "type": "string"
                 }
             }
         },
@@ -229,31 +295,31 @@
                     "type":"number"
                 },
                 "ContactId": {
-                    "Type": "number"
+                    "type": "number"
                 },
                 "FirstName": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "LastName": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "Address1": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "City": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "State": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "Zip": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "Phone": {
-                    "Type": "string"
+                    "type": "string"
                 },
                 "Email": {
-                    "Type": "string"
+                    "type": "string"
                 }
             }
         },
@@ -265,58 +331,58 @@
                             "type":"number"
                     },
                     "OperatorTypeName": {
-                        "Type": "number"
+                        "type": "number"
                     },
                     "OperatorTypeID": {
-                        "Type": "number"
+                        "type": "number"
                     },
                     "ServiceTypeID": {
-                        "Type": "number"
+                        "type": "number"
                     },
                     "OpAuthName": {
-                        "Type": "string"
+                        "type": "string"
                     },
                     "OpAuthID": {
-                        "Type": "number"
+                        "type": "number"
                     },
                     "LegalName": {
-                        "Type": "string"
+                        "type": "string"
                     },
                     "OperatoringName": {
-                        "Type": "string"
+                        "type": "string"
                     },
                     "Address1": {
-                        "Type": "string"
+                        "type": "string"
                     },
                     "Address2": {
-                        "Type": "string"
+                        "type": "string"
                     },
                     "City": {
-                        "Type": "string"
+                        "type": "string"
                     },
                     "State": {
-                        "Type": "string"
+                        "type": "string"
                     },
                     "Zip": {
-                        "Type": "string"
+                        "type": "string"
                     },
                     "Phone1": {
-                        "Type": "string"
+                        "type": "string"
                     },
                     "EmailAddress": {
-                        "Type": "string"
+                        "type": "string"
                     },
                     "LAXAgreeEndDate": {
-                        "Type": "string"
+                        "type": "string"
                     },
                     "OpAuthNumber": {
-                        "Type": "string"
+                        "type": "string"
                     },
                     "LAXAgreeNumber": {
-                        "Type": "string"
+                        "type": "string"
                     },
                     "SuspendedFlag": {
-                        "Type": "bool"
+                        "type": "boolean"
                     },
                     "ContractContact": {
                         "type": "array",
@@ -325,19 +391,19 @@
                         }
                     },
                     "FinanceContact": {
-                        "Type": "array",
+                        "type": "array",
                         "items":{
                             "$ref": "#/definitions/FinanceContact"
                         }
                     },
                     "PermitContact": {
-                        "Type": "array",
+                        "type": "array",
                         "items":{
                             "$ref": "#/definitions/PermitContact"
                         }
                     },
                     "Vehicles": {
-                        "Type": "array",
+                        "type": "array",
                         "items":{
                             "$ref": "#/definitions/Vehicles"
                         }
