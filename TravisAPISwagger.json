@@ -119,10 +119,8 @@
                     "200": {
                         "description":"OK",
                         "schema": {
-                                "type": "array",
-                                "items": {
-                                    "$ref":"#/definitions/rootObject"
-                                }     
+                                "type": "object",
+                                "$ref":"#/definitions/rootObject"
                         },
                         "examples":{
                             "application/json":{
@@ -138,31 +136,29 @@
         "rootObject": {
             "type": "object",
             "description": "Model for Operator data",
-                "properties": {
-                    "TravisData": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/definitions/TravisData"
-                            }
-                    },
-                    "Disclaimer": {
-                        "type": "string"
-                    },
-                    "RequestDateTime": {
-                        "type":"string"
-                    },
-                    "ErrorCode": {
-                        "type": "string"
-                    },
-                    "ErrorMessage": {
-                        "type":"string"
-                    },
-                    "RequestRecords": {
-                        "type": "string"
-                    }
-                 }
-            
-
+            "properties": {
+                "TravisData": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/TravisData"
+                        }
+                },
+                "Disclaimer": {
+                    "type": "string"
+                },
+                "RequestDateTime": {
+                    "type":"string"
+                },
+                "ErrorCode": {
+                    "type": "string"
+                },
+                "ErrorMessage": {
+                    "type":"string"
+                },
+                "RequestRecords": {
+                    "type": "string"
+                }
+                }
 
         },
         "Vehicles": {
