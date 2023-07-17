@@ -136,7 +136,7 @@
         "rootObject": {
             "type": "object",
             "description": "Model for Operator data",
-            "items": {
+            
                 "properties": {
                     "TravisData": {
                         "type": "array",
@@ -160,7 +160,7 @@
                         "type": "string"
                     }
                  }
-            }
+            
 
 
         },
