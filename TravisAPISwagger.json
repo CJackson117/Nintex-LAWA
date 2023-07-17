@@ -134,7 +134,7 @@
     },
     "definitions": {
         "rootObject": {
-            "type": "object",
+            "type": "array",
             "description": "Model for Operator data",
             "properties": {
                 "TravisData": {
