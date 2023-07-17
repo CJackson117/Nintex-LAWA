@@ -134,7 +134,7 @@
     },
     "definitions": {
         "rootObject": {
-            "type": "array",
+            "type": "object",
             "description": "Model for Operator data",
             "items": {
                 "properties": {
