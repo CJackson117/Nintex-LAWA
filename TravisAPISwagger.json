@@ -40,7 +40,7 @@
                     "200": {
                         "description":"OK",
                         "schema": {
-                                "$ref":"#definitions/rootObject"
+                                "$ref":"#/definitions/rootObject"
                         },
                         "examples":{
                             "application/json":{
@@ -85,7 +85,7 @@
                     "200": {
                         "description":"OK",
                         "schema": {
-                                "$ref":"#definitions/rootObject"
+                                "$ref":"#/definitions/rootObject"
                         },
                         "examples":{
                             "application/json":{
@@ -96,7 +96,7 @@
                 }
             }
         },
-        "/Ian/{LSPNumber}": {
+        "/Ian/{LS0Number}": {
             "get": {
                 "summary": "Get Operator Info From LSO Number",
                 "description": "Get Operator Info From LSO Number",
@@ -123,7 +123,7 @@
                         "description":"OK",
                         "schema": {
                                 "type": "object",
-                                "$ref":"#definitions/rootObject"
+                                "$ref":"#/definitions/rootObject"
                         },
                         "examples":{
                             "application/json":{
