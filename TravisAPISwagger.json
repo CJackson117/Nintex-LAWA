@@ -8,7 +8,7 @@
     "host": "api-test.lacity.org",
     "basePath": "/lawa/TravisOnBoard/GetTravisData",
     "schemes": [
-        "https"
+        "http"
     ],
     "produces": [
         "application/json"
