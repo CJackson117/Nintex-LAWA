@@ -175,7 +175,7 @@
                     "type": "number"
                 },
                 "FleetNumber": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "Year": {
                     "type": "number"
