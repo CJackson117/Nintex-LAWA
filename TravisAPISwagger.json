@@ -193,7 +193,7 @@
                     "type": "string"
                 },
                 "PassengerCapacity": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "FuelTypeID": {
                     "type": "number"
@@ -205,13 +205,13 @@
                     "type": "string"
                 },
                 "Weight": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "Transponder": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "DecalNumber": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
