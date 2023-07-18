@@ -383,7 +383,7 @@
                         "type": "string"
                     },
                     "SuspendedFlag": {
-                        "type": "boolean"
+                        "type": "string"
                     },
                     "ContractContact": {
                         "type": "array",
