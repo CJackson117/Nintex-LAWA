@@ -332,7 +332,7 @@
                             "type":"number"
                     },
                     "OperatorTypeName": {
-                        "type": "number"
+                        "type": "string"
                     },
                     "OperatorTypeID": {
                         "type": "number"
