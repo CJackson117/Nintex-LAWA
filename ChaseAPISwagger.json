@@ -1,0 +1,300 @@
+{
+    "swagger":"2.0",
+    "info": {
+            "version": "1.0.0",
+            "title": "OrbitalGatewayPaymentsAPI",
+            "description": "Used to perform a new authorization, authorization and capture, or force capture transaction"
+    },
+    "host": "[TBD]",
+    "basePath": "/[TBD]",
+    "schemes": [
+        "https"
+    ],
+    "paths": {
+        "/Payments": {
+            "post": {
+                "summary": "Used to perform a new authorization, authorization and capture, or force capture transaction",
+                "description": "Used to perform a new authorization, authorization and capture, or force capture transaction",
+                "operationId": "CreatePayment",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "orbitalConnectionUsername",
+                        "type": "string",
+                        "in": "header",
+                        "required": true,
+                        "description": "Authentication User"
+                    },
+                    {
+                        "name": "orbitalConnectionPassword",
+                        "type": "string",
+                        "in": "header",
+                        "required":true,
+                        "description": "Authentication Password"
+                    },
+                    {
+                        "name": "merchantID",
+                        "type": "string",
+                        "in": "header",
+                        "required":true,
+                        "description": "Authentication Merchant ID"
+                    },
+                    {
+                        "in": "body",
+                        "required":true,
+                        "description": "Payments Request Body",
+                        "name": "paymentsRequest",
+                        "schema": {
+                            "required":[
+                                "version",
+                                "transType"
+                            ],
+                            "properties": {
+                                "version":{
+                                    "type":"string"
+                                },
+                                "transType":{
+                                    "type":"string"
+                                },
+                                "merchant":{
+                                    "type":"object",
+                                    "items": {
+                                        "$ref": "#definitions/merchant"
+                                    }
+                                },
+                                "paymentInstrument":{
+                                    "type":"object",
+                                    "items": {
+                                        "$ref": "#/definitions/paymentInstrument"
+                                    }
+                                },
+                                "order":{
+                                    "type":"object",
+                                    "items": {
+                                        "$ref": "#/definitions/order"
+                                    }
+                                },
+                                "cardHolderVerification":{
+                                    "type":"object",
+                                    "items": {
+                                        "$ref": "#/definitions/cardHolderVerification"
+                                    }
+                                }
+
+                            }
+                        }
+
+                    }
+                ],
+                "responses":{
+                    "200": {
+                        "description":"OK",
+                        "schema": {
+                            "type":"object",
+                            "items": {
+                                "$ref":"#/definitions/paymentsResponse"
+                            }   
+                        },
+                        "examples":{
+                            "application/json":{
+
+                            }
+                        }
+                    },
+                    "400":{
+                        "description": "Invalid Request",
+                        "schema":{
+                            "type":"object",
+                            "items": {
+                                "properties":{
+                                    "procStatus":{
+                                        "type":"string"
+                                    },
+                                    "procStatusMessage":{
+                                        "type":"string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403":{
+                        "description": "Forbidden: SSL Connection Required",
+                        "schema":{
+                            "type":"object",
+                            "items": {
+                                "properties":{
+                                    "procStatus":{
+                                        "type":"string"
+                                    },
+                                    "procStatusMessage":{
+                                        "type":"string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "408":{
+                        "description": "Request Timed Out",
+                        "schema":{
+                            "type":"object",
+                            "items": {
+                                "properties":{
+                                    "procStatus":{
+                                        "type":"string"
+                                    },
+                                    "procStatusMessage":{
+                                        "type":"string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "412":{
+                        "description": "Precondition Failed: Security Information is missing",
+                        "schema":{
+                            "type":"object",
+                            "items": {
+                                "properties":{
+                                    "procStatus":{
+                                        "type":"string"
+                                    },
+                                    "procStatusMessage":{
+                                        "type":"string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500":{
+                        "description": "Internal Server Error",
+                        "schema":{
+                            "type":"object",
+                            "items": {
+                                "properties":{
+                                    "procStatus":{
+                                        "type":"string"
+                                    },
+                                    "procStatusMessage":{
+                                        "type":"string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "502":{
+                        "description": "Connection Error",
+                        "schema":{
+                            "type":"object",
+                            "items": {
+                                "properties":{
+                                    "procStatus":{
+                                        "type":"string"
+                                    },
+                                    "procStatusMessage":{
+                                        "type":"string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "503":{
+                        "description": "Server Unavailable: Please Try Again Later",
+                        "schema":{
+                            "type":"object",
+                            "items": {
+                                "properties":{
+                                    "procStatus":{
+                                        "type":"string"
+                                    },
+                                    "procStatusMessage":{
+                                        "type":"string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "merchant": {
+            "type": "object",
+            "description": "Model for merchant",
+            "properties": {
+                "bin": {
+                    "type": "string"
+                },
+                "merchantID": {
+                    "type":"string"
+                },
+                "terminalID": {
+                    "type": "string"
+                }
+            }
+        },
+        "card": {
+            "type": "object",
+            "description": "Model for card",
+            "properties": {
+                "ccAccountNum": {
+                    "type": "string"
+                },
+                "ccExp": {
+                    "type":"string"
+                }
+            }
+        },
+        "paymentInstrument": {
+            "type": "object",
+            "description": "Model for payment instrument",
+            "properties": {
+                "card": {
+                    "type": "object",
+                    "items": {
+                        "$ref": "#/definitions/card"
+                        }
+                }
+                }
+        },
+        "order": {
+            "type": "object",
+            "description": "Model for order",
+            "properties": {
+                "orderID": {
+                    "type": "string"
+                },
+                "amount": {
+                    "type":"string"
+                },
+                "industryType": {
+                "type":"string"
+                }
+            }
+        },
+        "cardHolderVerification": {
+            "type": "object",
+            "description": "Model for card holder verification",
+            "properties": {
+                "ccCardVerifyNum ": {
+                    "type": "string"
+                }
+            }
+        },
+        "paymentsResponse": {
+            "type": "object",
+            "description": "Model for Operator data",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "transtype": {
+                    "type":"string"
+                }
+            }
+
+        }
+       
+    }
+
+}
