@@ -5,8 +5,7 @@
             "title": "OrbitalGatewayPaymentsAPI",
             "description": "Used to perform a new authorization, authorization and capture, or force capture transaction"
     },
-    "host": "[TBD]",
-    "basePath": "/[TBD]",
+    "host": "orbitalvar1.chasepaymentech.com",
     "schemes": [
         "https"
     ],
